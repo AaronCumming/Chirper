@@ -10,7 +10,7 @@ class Chirp(models.Model):
     chirp_name = models.CharField(max_length=255)
     time_created = models.DateTimeField("date published")
     chirp_body = models.TextField()
-    parent_chirp_id = models.ForeignKey("chirper.Chirp", on_delete=models.CASCADE, null=True)
+    parent_chirp_id = models.ForeignKey("chirper.Chirp", on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.chirp_name
