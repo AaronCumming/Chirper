@@ -18,4 +18,4 @@ class HomeView(generic.ListView):
 
 class DetailView(generic.DetailView):
     model = Chirp
-    template_name = "chirper/chat/chirper_detail.html"
+    template_name = "chirper/chat/chirp_detail.html"
