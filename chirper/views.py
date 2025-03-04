@@ -13,9 +13,13 @@ class HomeView(generic.ListView):
 
     def get_queryset(self):
         """Return all of the Chirps."""
-        return Chirp.objects.order_by("-time_created")
+        return Chirp.objects.order_by("-time_created").all_parent_chirps().prefetch_related("replies")
     
 
 class DetailView(generic.DetailView):
     model = Chirp
     template_name = "chirper/chat/chirp_detail.html"
+
+    def get_queryset(self):
+        """Return all of the Chirps."""
+        return Chirp.objects.order_by("-time_created").all_parent_chirps().prefetch_related("replies")

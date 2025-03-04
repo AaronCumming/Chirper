@@ -12,18 +12,19 @@ class DeckQuerySet(models.QuerySet["Chirp"]):
     def all_parent_chirps(self):
         return self.filter(parent_chirp_id__isnull=True)
     
-    """
-    def all_children_on_parent_chirp(self):
-        return self.filter(paren_chirp_id = chirp)
-    """
-        
+    
+    def all_children_on_parent_chirp(self, chirp_id):
+        return self.filter(paren_chirp_id = chirp_id)
+      
 
 class Chirp(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     chirp_name = models.CharField(max_length=255)
     time_created = models.DateTimeField("date published")
     chirp_body = models.TextField()
-    parent_chirp_id = models.ForeignKey("chirper.Chirp", on_delete=models.CASCADE, null=True, blank=True)
+    parent_chirp_id = models.ForeignKey("chirper.Chirp", on_delete=models.CASCADE, null=True, blank=True, related_name="replies")
+
+    objects: DeckQuerySet = DeckQuerySet.as_manager()
 
     def __str__(self):
         return self.chirp_name
