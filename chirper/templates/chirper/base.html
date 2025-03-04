@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--<link rel="stylesheet" href="{% static 'css/base.css' %}">-->
+    <!--<script type="module" src="{% static 'app.js' %}"></script>-->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Chirper</title>
+  </head>
+  <header class="bg-blue-800 text-gray-100 py-4">
+    <div class="container mx-auto text-center">
+        <h1 class="text-3xl font-bold">Chirper</h1>
+    </div>
+</header>
+
+<main class="container mx-auto mt-5">
+  {% block content %}
+  <!-- Child template content will be inserted here -->
+  {% endblock %}
+</main>
+
+</html>

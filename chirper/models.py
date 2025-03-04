@@ -5,6 +5,19 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 # Create your models here.
+
+
+class DeckQuerySet(models.QuerySet["Chirp"]):
+        
+    def all_parent_chirps(self):
+        return self.filter(parent_chirp_id__isnull=True)
+    
+    """
+    def all_children_on_parent_chirp(self):
+        return self.filter(paren_chirp_id = chirp)
+    """
+        
+
 class Chirp(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     chirp_name = models.CharField(max_length=255)
