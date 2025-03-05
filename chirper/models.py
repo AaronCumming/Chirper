@@ -33,3 +33,9 @@ class Chirp(models.Model):
         return self.time_created >= timezone.now() - datetime.timedelta(days=1)
 
         
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    chirp = models.ForeignKey(Chirp, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('user', 'chirp')
