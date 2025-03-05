@@ -7,8 +7,10 @@
   <ul>
     {% for chirp in parent_chirper_list %}
     <li><a href="{% url 'chirper:detail' chirp.id %}">{{ chirp.chirp_name }}</a>
+        <p class="indent-4">{{ chirp.chirp_body }}</p>
         {% for reply in chirp.replies.all %}
-        <li>{{ reply.chirp_name }}</a></li>
+        <li class="indent-12">{{ reply.chirp_name }}</a></li>
+        <p class="indent-16">{{ reply.chirp_body }}</p>
         {% endfor %}
     {% endfor %}
     </ul>
