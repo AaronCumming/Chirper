@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse, reverse_lazy
 from django.views import generic
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Chirp
 
@@ -27,9 +28,14 @@ class DetailView(generic.DetailView):
 
 class CreateChirpView(generic.CreateView):
     model = Chirp
-    fields = ["user", "chirp_name", "chirp_body", "time_created", "parent_chirp_id"]
+    fields = ["chirp_name", "chirp_body"]
     template_name = "chirper/chat/chirp_create.html"
     success_url = reverse_lazy("chirper:home")
+
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
     #form_class = GameForm
