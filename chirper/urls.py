@@ -6,4 +6,5 @@ app_name = "chirper"
 urlpatterns = [
     path("", views.HomeView.as_view(), name="home"),
     path("<int:pk>/", views.DetailView.as_view(), name="detail"),
+    path("create/", views.CreateChirpView.as_view(), name="create"),
 ]

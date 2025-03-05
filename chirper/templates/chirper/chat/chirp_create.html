@@ -1,0 +1,9 @@
+{% extends "chirper/base.html" %}
+{% block content %}
+  <h1 class="text-2xl font-bold text-center text-blue-600">Welcome to Chirper!<br>Here are all of the chirps!</h1>
+  <form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save">
+</form>
+
+{% endblock %}
