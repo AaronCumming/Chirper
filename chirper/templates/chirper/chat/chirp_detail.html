@@ -9,8 +9,8 @@
   <li class="indent-0">{{ reply.user.username }} -> {{ reply.chirp_name }}</a></li>
   <p class="indent-4">{{ reply.chirp_body }}</p>
   {% endfor %}
-  <a class="bg-blue-700 text-gray-100 rounded px-2 py-2 w-1/2 hover:cursor-pointer hover:bg-blue-800 transition-colors text-center mt-10 text-2xl"
-  href="{% url 'chirper:create_reply' %}">Reply to this Chirp</a>
+  <a class="bg-blue-700 text-gray-100 rounded px-2 py-1 w-1/2 hover:cursor-pointer hover:bg-blue-800 transition-colors text-center mt-10 text-2xl"
+  href="{% url 'chirper:create_reply' chirp.id%}">Reply to this Chirp</a>
 
   {% endblock %}
 

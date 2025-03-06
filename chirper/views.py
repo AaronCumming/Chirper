@@ -1,3 +1,10 @@
+"""
+views.py
+Aaron Cumming
+2025-02-25
+"""
+
+
 from django.db.models import F
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import get_object_or_404, render, redirect
@@ -41,14 +48,24 @@ class CreateReplyView(generic.CreateView):
     model = Chirp
     fields = ["chirp_name", "chirp_body"]
     template_name = "chirper/chat/chirp_create_reply.html"
-    success_url = reverse_lazy("chirper:home") #TODO change to parent chirp
+
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["parent_chirp"] = get_object_or_404(Chirp, id=self.kwargs["parent_id"])
+        return context
 
 
     def form_valid(self, form):
         form.instance.user = self.request.user
+        parent_id = self.kwargs.get("parent_id")
+        form.instance.parent_chirp_id = get_object_or_404(Chirp, id=parent_id)
         return super().form_valid(form)
-    
-    #TODO Make it a child chirp instead of a parent chirp
+
+
+    def get_success_url(self):
+        """Goes back to parent chirp page after replying."""
+        return reverse_lazy("chirper:detail", kwargs={"pk":self.kwargs["parent_id"]})
 
 
 
