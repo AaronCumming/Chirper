@@ -2,10 +2,14 @@
 {% block content %}
   <h1 class="text-2xl font-bold text-center text-blue-600">{{ chirp.chirp_name }}</h1>
   <h3 class="font-bold text-center text-blue-600">{{ chirp.chirp_body }}</h3>
+  <h3 class="font-bold text-center text-blue-600">posted by -> {{ chirp.user.username }}</h3>
+  <p class="text-gray-700">Likes: {{ chirp.like_set.count }}</p>
 
   {% for reply in chirp.replies.all %}
-  <li class="indent-0">{{ reply.chirp_name }}</a></li>
+  <li class="indent-0">{{ reply.user.username }} -> {{ reply.chirp_name }}</a></li>
   <p class="indent-4">{{ reply.chirp_body }}</p>
   {% endfor %}
+  <a class="bg-blue-700 text-gray-100 rounded px-2 py-2 w-1/2 hover:cursor-pointer hover:bg-blue-800 transition-colors text-center mt-10 text-2xl"
+  href="{% url 'chirper:create_reply' %}">Reply to this Chirp</a>
 
   {% endblock %}

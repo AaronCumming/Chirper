@@ -37,6 +37,20 @@ class CreateChirpView(generic.CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
+class CreateReplyView(generic.CreateView):
+    model = Chirp
+    fields = ["chirp_name", "chirp_body"]
+    template_name = "chirper/chat/chirp_create_reply.html"
+    success_url = reverse_lazy("chirper:home") #TODO change to parent chirp
+
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+    
+    #TODO Make it a child chirp instead of a parent chirp
+
+
 
     #form_class = GameForm
     """
