@@ -15,16 +15,6 @@
     </div>
 </header>
 
-{% if user.is_authenticated %}
-  <a href="{% url 'account_email' %}" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
-    Profile
-  </a>
-{% else %}
-  <a href="{% url 'account_login' %}" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 transition">
-    Login
-  </a>
-{% endif %}
-
 <main class="container mx-auto mt-5">
   {% block content %}
   <!-- Child template content will be inserted here -->
