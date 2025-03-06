@@ -12,7 +12,7 @@ from django.urls import reverse, reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .models import Chirp
+from .models import Chirp, User
 
 # Create your views here.
 class HomeView(generic.ListView):
@@ -31,6 +31,11 @@ class DetailView(generic.DetailView):
     def get_queryset(self):
         """Return all of the Chirps."""
         return Chirp.objects.order_by("-time_created").all_parent_chirps().prefetch_related("replies")
+    
+
+class ProfileView(generic.DetailView):
+    model = User
+    template_name = "chirper/chat/profile.html"
     
 
 class CreateChirpView(generic.CreateView):
