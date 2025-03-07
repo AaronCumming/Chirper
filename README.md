@@ -21,3 +21,19 @@ uv run manage.py runserver
 
 Then navigate to the following url on a web broswer:
 *    http://127.0.0.1:8000
+
+
+
+## Development Team:
+
+Aaron:
+* Implemented account sign up and creation.
+* Implemented ablilty to delete account with or without deleting the account's chirps.
+* Implemented ablilty to create chirps and replies.
+* Implemented backend models and views.
+
+Brennan:
+* Implemented chirp liking functionality.
+
+Kaylee:
+* Made it look nice on the front-end.
