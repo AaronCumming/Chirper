@@ -1,9 +1,15 @@
 {% extends "chirper/base.html" %}
 {% block content %}
-  <h1 class="text-2xl font-bold text-center text-blue-600">Here you can create a new chirp!</h1>
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+  <h2>Create a new chirp here</h2>
+
+  <br>
+
   <form method="post">{% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Save">
-</form>
+    <p><input type="submit" value="Save"></p>
+  </form>
 
 {% endblock %}

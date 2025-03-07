@@ -1,6 +1,6 @@
 {% extends "chirper/base.html" %}
 {% block content %}
-  <h1 class="text-2xl font-bold text-center text-blue-600">Welcome to Chirper!<br>Here are all of the chirps!</h1>
+
 
   {% if user.is_authenticated %}
   <a href="{% url 'chirper:profile' user.id %}" class="bg-blue-700 text-white px-2 py-1 rounded hover:bg-blue-800 transition text-center mt-10 text-2xl">
@@ -13,18 +13,41 @@
 {% endif %}
 
 <br><br>
-<a class="bg-blue-700 text-gray-100 rounded px-2 py-1 w-1/2 hover:cursor-pointer hover:bg-blue-800 transition-colors text-center mt-10 text-2xl"
-  href="{% url 'chirper:create' %}">Create a Chirp</a>
   
+{% load static %}
+<head>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+
+  <h2>Message Feed</h2>
+
+  <br>
+
+  <button class="createchirp" style="margin-left:250px;">
+    <a href="{% url 'chirper:create' %}">Create a Chirp</a>
+  </button>
+
   <ul>
+    <br>
+
     {% for chirp in parent_chirper_list %}
     <li><a href="{% url 'chirper:detail' chirp.id %}">
         {{ chirp.user.username|default:"deleted_user" }} -> {{ chirp.chirp_name }} -- Likes: {{ chirp.like_set.count }}</a></li>
         <p class="indent-4">{{ chirp.chirp_body }}</p>
         
+    <li><a href="{% url 'chirper:detail' chirp.id %}">{{ chirp.user.username }} -> {{ chirp.chirp_name }} -- Likes: {{ chirp.like_set.count }}</a>
+
+        <p >{{ chirp.chirp_body }}</p>
+
         {% for reply in chirp.replies.all %}
         <li class="indent-12">{{ reply.user.username|default:"deleted_user" }} -> {{ reply.chirp_name }}</a></li>
         <p class="indent-16">{{ reply.chirp_body }}</p>
+
+        <li><p>{{ reply.user.username }} -> {{ reply.chirp_name }}</p></li>
+
+        <p style="margin-left:600px;">{{ reply.chirp_body }}</p>
+        
         {% endfor %}
     {% endfor %}
     </ul>

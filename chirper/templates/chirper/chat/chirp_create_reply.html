@@ -1,12 +1,19 @@
 {% extends "chirper/base.html" %}
 {% block content %}
-<h1 class="text-2xl font-bold text-center text-blue-600">Here you can reply to the following chirp!</h1>
-<h3 class="text-1xl font-bold text-center text-blue-600">{{ parent_chirp.chirp_name }}</h3>
-<h3 class="font-bold text-center text-blue-600">{{ parent_chirp.chirp_body }}</h3>
-<h3 class="font-bold text-center text-blue-600">posted by -> {{ parent_chirp.user.username }}</h3>
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<h3>Here you can reply to the following chirp!</h3>
+
+<h3>{{ parent_chirp.chirp_name }}</h4>
+
+<h3>{{ parent_chirp.chirp_body }}</h3>
+
+<h3>posted by -> {{ parent_chirp.user.username }}</h3>
   <form method="post">{% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Save">
+    <p><input type="submit" value="Save"></p>
 </form>
 
 {% endblock %}
