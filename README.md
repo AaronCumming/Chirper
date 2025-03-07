@@ -28,8 +28,8 @@ Then navigate to the following url on a web broswer:
 
 Aaron:
 * Implemented account sign up and creation.
-* Implemented ablilty to delete account with or without deleting the account's chirps.
-* Implemented ablilty to create chirps and replies.
+* Implemented ability to delete account with or without deleting the account's chirps.
+* Implemented ability to create chirps and replies.
 * Implemented backend models and views.
 
 Brennan:
