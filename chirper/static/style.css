@@ -144,5 +144,76 @@ ul {
     color:#003092;
 }
 
+.profile {
+    background-color: #5F85DB;
+    font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
+    font-weight:bold;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top:-20px;
+    cursor: pointer;
+    padding-top:10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+    .profile a:hover {
+    color:#003092;
+}
 
+.login {
+    background-color: #5F85DB;
+    font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
+    font-weight:bold;
+    border-radius: 8px;
+    border: none;
+    color: #f2f2f2;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    padding-top:10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-left:185px;
+}
+    .login a:hover {
+    color:#003092;
+}
 
+.save {
+    background-color: #5F85DB;
+    font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
+    font-weight:bold;
+    border-radius: 8px;
+    border: none;
+    color: #f2f2f2;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    padding-top:10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-left:185px;
+}
+    .save a:hover {
+    color:#003092;
+}
+
+form input, form textarea, form select {
+    outline: 1px solid #5F85DB;
+}
+
+form input:focus, form textarea:focus, form select:focus {
+    outline: 1px solid #5F85DB;
+}
