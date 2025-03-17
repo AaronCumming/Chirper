@@ -2,20 +2,23 @@
 {% block content %}
 
 <h2>Hello {{user.username}}!</h2>
+
 <br><br>
 
 
 <form method="POST">
     {% csrf_token %}
-    <button type="submit" name="delete_action" value="keep_chirps"
-        class="bg-red-700 text-gray-100 rounded px-2 py-2 w-1/2 hover:cursor-pointer hover:bg-red-800 transition-colors text-center mt-10 text-2xl">
-        Delete Account BUT KEEP Your Chirps & Replies
-    </button>
+    <ul class="profilebuttons">
+        <button type="submit" name="delete_action" value="keep_chirps"
+            class="bg-red-700 text-gray-100 rounded px-2 py-2 w-1/2 hover:cursor-pointer hover:bg-red-800 transition-colors text-center mt-10 text-2xl">
+            Delete Account BUT KEEP Your Chirps & Replies
+        </button>
     <br>
-    <button type="submit" name="delete_action" value="delete_all"
-        class="bg-red-700 text-gray-100 rounded px-2 py-2 w-1/2 hover:cursor-pointer hover:bg-red-800 transition-colors text-center mt-10 text-2xl">
-        Delete Account AND ALL Your Chirps & Replies
-    </button>
+        <button type="submit" name="delete_action" value="delete_all"
+            class="bg-red-700 text-gray-100 rounded px-2 py-2 w-1/2 hover:cursor-pointer hover:bg-red-800 transition-colors text-center mt-10 text-2xl">
+            Delete Account AND ALL Your Chirps & Replies
+        </button>
+    </ul>
 </form>
 <br><br><br><br><br><br><br><br><br><br>
 {% endblock %}

@@ -1,38 +1,42 @@
 body {
     background-color:#26282B;
-    width:1900px;
+    max-width:100%;
+    margin: 0;
+    padding: 0;
 }
 
 p {
     font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
     color:#f2f2f2;
-    font-size: 20px;
+    font-size:1.2rem;
     font-weight:100;
-    text-align: left;
-    align-content:center;
+    text-align:center;
 }
 
 h1 {
     font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
     color:#5F85DB;
-    font-size: 48px;
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight:bolder;
-    margin-left:-1000px;
-    margin-top:20px;
+    text-align: center;
+    margin-right: 10em;
 }
 
 h2 {
     font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
     color:#f2f2f2;
-    font-size: 30px;
+    font-size: clamp(1.5rem, 4vw, 2rem);
     font-weight:bold;
-    margin-left:250px;
+    text-align:center;
+    margin-bottom:10px;
+    margin-right: 12em;
+    margin-top:-20px;
 }
 
 h3 {
     font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
     color:#f2f2f2;
-    font-size: 25px;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
     font-weight:bold;
     text-align: center;
     margin-bottom:10px;
@@ -41,14 +45,26 @@ h3 {
 h4 {
     font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
     color:#f2f2f2;
-    font-size: 20px;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
     font-weight:bold;
     text-align: center;
     margin-bottom:10px;
 }
 
+h5 {
+    font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
+    color:#5F85DB;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight:bold;
+    text-align:center;
+    margin-bottom:10px;
+    margin-top:-20px;
+}
+
 a {
     color:#f2f2f2;
+
+
 }
 a:hover {
    color: #f2f2f2;
@@ -59,24 +75,41 @@ footer {
 }
 
 ul {
-    align-content:center;
+    text-decoration:none;
+    max-width:80%;
+    margin:auto;
+    padding:0;
 }
     ul li {
-
+    text-align:center;
     font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
     color:#f2f2f2;
-    font-size: 20px;
+    font-size: 1.2rem;
     font-weight:100;
-    text-align:left;
-    margin-left:600px;
-    margin-top:20px;
-    padding-top:10px;
+    line-height:2.1em;
 }
     ul li a {
         color:#5F85DB
     }
 
-.createchirp {
+nav ul {
+    display:flex;
+    justify-content: flex-start;
+    list-style:none;
+    padding:0;
+}
+
+    nav ul li {
+        margin-left:auto;
+        margin-right:160px;
+        margin-top:-2.1em;
+    }
+
+    nav ul li a {
+        color:#f2f2f2;
+    }
+
+.createchirp, .home, .replytochirp, .save {
     background-color: #5F85DB;
     font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
     font-weight:bold;
@@ -89,62 +122,14 @@ ul {
     font-size: 16px;
     margin-top:-20px;
     cursor: pointer;
-    padding-top:10px;
-    padding-bottom: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
+    padding: 10px;
 }
-    .createchirp a:hover {
+    .createchirp a:hover, .home a:hover, .replytochirp a:hover, .profile a:hover, .login a:hover, .save a:hover {
         color:#003092;
     }
-
-.home {
-    background-color: #5F85DB;
-    font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
-    font-weight:bold;
-    border-radius: 8px;
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-top:-20px;
-    cursor: pointer;
-    padding-top:10px;
-    padding-bottom: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
-}
-
-    .home a:hover {
-        color:#003092;
-    }
-
-.replytochirp {
-    background-color: #5F85DB;
-    font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
-    font-weight:bold;
-    border-radius: 8px;
-    border: none;
-    color: #f2f2f2;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    padding-top:10px;
-    padding-bottom: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
-    margin-left:185px;
-}
-
-    .replytochirp a:hover {
-    color:#003092;
-}
 
 .profile {
+    align-items:right;
     background-color: #5F85DB;
     font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
     font-weight:bold;
@@ -157,35 +142,24 @@ ul {
     font-size: 16px;
     margin-top:-20px;
     cursor: pointer;
-    padding-top:10px;
-    padding-bottom: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
-}
-    .profile a:hover {
-    color:#003092;
+    padding:3px 10px;
 }
 
 .login {
+    align-items:right;
     background-color: #5F85DB;
     font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
     font-weight:bold;
     border-radius: 8px;
     border: none;
-    color: #f2f2f2;
+    color: white;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    margin-top:-20px;
     cursor: pointer;
-    padding-top:10px;
-    padding-bottom: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
-    margin-left:185px;
-}
-    .login a:hover {
-    color:#003092;
+    padding:5px 10px;
 }
 
 .save {
@@ -194,26 +168,47 @@ ul {
     font-weight:bold;
     border-radius: 8px;
     border: none;
-    color: #f2f2f2;
+    color: white;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: flex;
     font-size: 16px;
+    margin-top:3em;
+    margin-left:5em;
     cursor: pointer;
-    padding-top:10px;
-    padding-bottom: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
-    margin-left:185px;
-}
-    .save a:hover {
-    color:#003092;
+    padding: 10px;
 }
 
 form input, form textarea, form select {
     outline: 1px solid #5F85DB;
+    width: 60%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border:none;
 }
 
 form input:focus, form textarea:focus, form select:focus {
-    outline: 1px solid #5F85DB;
+    outline: 2px solid #5F85DB;
+}
+
+.createbutton {
+    align-content:left;
+    margin-right:2em;
+}
+
+.createmessage {
+    align-content:left;
+}
+
+.profilebuttons {
+    align-content:center;
+    margin-right:4em;
+}
+
+.replymessage {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
 }

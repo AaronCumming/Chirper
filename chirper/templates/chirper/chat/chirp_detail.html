@@ -1,12 +1,12 @@
 {% extends "chirper/base.html" %}
 {% block content %}
-  <h1>{{ chirp.chirp_name }}</h1>
+  <h5>{{ chirp.chirp_name }}</h5>
   <h3>{{ chirp.chirp_body }}</h3>
   <h3>posted by -> {{ chirp.user.username|default:"deleted_user" }}</h3>
 {% load static %}
 <link rel="stylesheet" href="{% static 'style.css' %}">
 
-  <h2 style="margin-left:715px; margin-bottom:40px;">{{ chirp.chirp_name }}</h2>
+  
 
 
   {% for reply in chirp.replies.all %}
@@ -17,10 +17,14 @@
   
   {% endfor %}
 
-  <p style="margin-left:185px;">Likes: {{ chirp.like_set.count }}</p>
-  <button class="replytochirp">
-  <a href="{% url 'chirper:create_reply' chirp.id%}">Reply to this Chirp</a>
-  </button>
+  <br>
+  <p>Likes: {{ chirp.like_set.count }}</p>
+
+  <ul class="replymessage">
+    <button class="replytochirp">
+      <a href="{% url 'chirper:create_reply' chirp.id%}">Reply to this Chirp</a>
+    </button>
+  </ul>
 
   {% endblock %}
 
