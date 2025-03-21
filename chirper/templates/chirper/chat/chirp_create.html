@@ -3,16 +3,15 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'style.css' %}">
 
+
   <h2>Create a new chirp here</h2>
 
   <br>
-
+<!-- Create Chirp Form -->
   <form method="post">{% csrf_token %}
     {{ form.as_p }}
 
-    <button class="save">
-    <p><input type="submit" value="Save"></p>
-  </button>
+    <p><input type="submit" class="save" value="Save"></p>
   </form>
 
 {% endblock %}

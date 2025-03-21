@@ -6,9 +6,7 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'style.css' %}">
 
-  
-
-
+  <!-- Chirp Information -->
   {% for reply in chirp.replies.all %}
   
   <h4>{{ reply.chirp_body }}</h4>

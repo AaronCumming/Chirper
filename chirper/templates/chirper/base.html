@@ -10,35 +10,35 @@
     <title>Chirper</title>
     
   </head>
+  <!-- Header -->
   <header>
     <div class="container mx-auto text-center">
         <h1>Chirper</h1>
     </div>
   </header>
 
+  <!-- Profile/Login Button -->
   <nav>
     <ul>
       <li>
         <button class="profile">
+          <!-- If User has logged into profile -->
           {% if user.is_authenticated %}
           <a href="{% url 'chirper:profile' user.id %}">
             Profile
           </a>
         </button>
 
+        <!-- If User has not logged into profile -->
         {% else %}
      
           <a href="{% url 'account_login' %}">
             Login
           </a>
-    
         {% endif %}
       </li>
     </ul>
   </nav>
-
-
-
 
 <div class="container mx-auto mt-5">
   {% block content %}
@@ -46,7 +46,10 @@
   {% endblock %}
 
 </div>
+
 <br><br><br><br>
+
+<!-- Footer -->
 <footer>
   <div class="container mx-auto text-center">
     <button class="home">

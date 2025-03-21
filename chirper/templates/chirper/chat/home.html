@@ -5,13 +5,14 @@
   <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 
-
+<!-- Home Page Message Feed -->
 <br><br>
 
   <h2>Message Feed</h2>
 
   <br>
 
+  <!-- Create Chirp Button -->
   <ul class="createbutton">
     <button class="createchirp">
       <a href="{% url 'chirper:create' %}">Create a Chirp</a>
@@ -21,18 +22,17 @@
   <ul>
     <br>
 
+    <!-- Lists User Chirps -->
     {% for chirp in parent_chirper_list %}
     <li><a href="{% url 'chirper:detail' chirp.id %}">
         {{ chirp.user.username|default:"deleted_user" }} -> {{ chirp.chirp_name }} -- Likes: {{ chirp.like_set.count }}</a>
         <p>{{ chirp.chirp_body }}</p></li>
         
     
-
+        <!-- Lists Reply to User Chirps -->
         {% for reply in chirp.replies.all %}
         <li>{{ reply.user.username|default:"deleted_user" }} -> {{ reply.chirp_name }}</a>
         <p>{{ reply.chirp_body }}</p></li>
-
-        
         
         {% endfor %}
     {% endfor %}
